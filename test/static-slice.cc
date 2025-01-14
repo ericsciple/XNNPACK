@@ -115,8 +115,8 @@ TEST_F(StaticSliceTestQS8, define)
   EXPECT_EQ(node->outputs[0], output_id);
   EXPECT_EQ(node->flags, 0);
   EXPECT_EQ(node->params.slice.num_dims, dims.size());
-  EXPECT_THAT(offsets, testing::ElementsAreArray(node->params.slice.offsets, dims.size()));
-  EXPECT_THAT(inferrable_sizes, testing::ElementsAreArray(node->params.slice.sizes, dims.size()));
+  EXPECT_THAT(offsets, testing::ElementsAreArray(node->params.slice.begins, dims.size()));
+  EXPECT_THAT(inferrable_sizes, testing::ElementsAreArray(node->params.slice.ends, dims.size()));
 }
 
 TEST_F(StaticSliceTestQU8, define)
@@ -157,8 +157,8 @@ TEST_F(StaticSliceTestQU8, define)
   EXPECT_EQ(node->outputs[0], output_id);
   EXPECT_EQ(node->flags, 0);
   EXPECT_EQ(node->params.slice.num_dims, dims.size());
-  EXPECT_THAT(offsets, testing::ElementsAreArray(node->params.slice.offsets, dims.size()));
-  EXPECT_THAT(inferrable_sizes, testing::ElementsAreArray(node->params.slice.sizes, dims.size()));
+  EXPECT_THAT(offsets, testing::ElementsAreArray(node->params.slice.begins, dims.size()));
+  EXPECT_THAT(inferrable_sizes, testing::ElementsAreArray(node->params.slice.ends, dims.size()));
 }
 
 TEST_F(StaticSliceTestF16, define)
@@ -196,8 +196,8 @@ TEST_F(StaticSliceTestF16, define)
   EXPECT_EQ(node->outputs[0], output_id);
   EXPECT_EQ(node->flags, 0);
   EXPECT_EQ(node->params.slice.num_dims, dims.size());
-  EXPECT_THAT(offsets, testing::ElementsAreArray(node->params.slice.offsets, dims.size()));
-  EXPECT_THAT(sizes, testing::ElementsAreArray(node->params.slice.sizes, dims.size()));
+  EXPECT_THAT(offsets, testing::ElementsAreArray(node->params.slice.begins, dims.size()));
+  EXPECT_THAT(sizes, testing::ElementsAreArray(node->params.slice.ends, dims.size()));
 }
 
 TEST_F(StaticSliceTestF32, define)
@@ -235,8 +235,8 @@ TEST_F(StaticSliceTestF32, define)
   EXPECT_EQ(node->outputs[0], output_id);
   EXPECT_EQ(node->flags, 0);
   EXPECT_EQ(node->params.slice.num_dims, dims.size());
-  EXPECT_THAT(offsets, testing::ElementsAreArray(node->params.slice.offsets, dims.size()));
-  EXPECT_THAT(inferrable_sizes, testing::ElementsAreArray(node->params.slice.sizes, dims.size()));
+  EXPECT_THAT(offsets, testing::ElementsAreArray(node->params.slice.begins, dims.size()));
+  EXPECT_THAT(inferrable_sizes, testing::ElementsAreArray(node->params.slice.ends, dims.size()));
 }
 
 TEST_F(StaticSliceTestQS8, matches_operator_api)
